@@ -1,4 +1,5 @@
 import React, {Component} from 'react';
+import {MuiThemeProvider} from '@material-ui/core/styles';
 import './App.css';
 import WeatherLocation from './components/WeatherLocation';
 /* import {createStore} from 'redux';*/
@@ -17,7 +18,9 @@ class App extends Component {
   render(){
     return(
       <div className="App">
-        <WeatherLocation/>
+        <MuiThemeProvider>
+          <WeatherLocation/>
+        </MuiThemeProvider>
       </div>
     )
   }
