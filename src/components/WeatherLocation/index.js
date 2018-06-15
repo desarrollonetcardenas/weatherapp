@@ -1,37 +1,23 @@
 import React, {Component} from 'react';
+import PropTypes from 'prop-types';
 import CircularProgress from '@material-ui/core/CircularProgress';
 import Location from './Location';
 import WeatherData from './WeatherData';
 import './styles.css';
-import{
-  DAY_SUNNY
-} from '../../constants/weathers';
 import transformWeather from '../../services/transformWeather';
 
-const location = "Sinaloa, Mx";
-const api_key="bfd5b8a316e04133e81ffb5a8031af4e";
-const api_weather = `https://api.openweathermap.org/data/2.5/weather?q=${location}&appid=${api_key}`;
-
-
-const data1 = {
-  temperature: 55,
-  weatherState: DAY_SUNNY,
-  humidity: 50,
-  wind: '10 m/s'
-};
-
 class WeatherLocation extends Component {
-  constructor(){
+  constructor({ city }){
     super();
     this.state = {
-      city: 'Culiacan',
+      city: city,
       data: null
     };
     console.log('constructor');
   }
 
   componentWillMount(){
-    this.handleUpdateClick();
+    this.getWeatherDataApi();
   }
 
   componentDidMount(){
@@ -46,20 +32,25 @@ class WeatherLocation extends Component {
     console.log('componentDidUpdate ');
   }
 
+  getWeatherDataApi= () => {
+    const { city } = this.state;
+    const api_key="bfd5b8a316e04133e81ffb5a8031af4e";
+    const url= "https://api.openweathermap.org/data/2.5/weather";
+    const api_weather = `${url}?q=${city}&appid=${api_key}`;
+
+    fetch(api_weather).then(data=> {
+      return data.json();
+    })
+    .then(weather_data => {
+      const data = transformWeather(weather_data);
+      this.setState({ data });
+    })
+    .catch(err=>{
+      console.log(err);
+    });
+  }
   handleUpdateClick = () => {
-
-      fetch(api_weather).then(data=> {
-        return data.json();
-      })
-      .then(weather_data => {
-        const data = transformWeather(weather_data);
-        this.setState({ data });
-      })
-      .catch(err=>{
-        console.log(err);
-      });
-
-      console.log("actualizado");
+    this.getWeatherDataApi();
   }
 
   render = () =>{
@@ -72,6 +63,10 @@ class WeatherLocation extends Component {
       </div>
     )
   }
+}
+
+WeatherLocation.PropTypes = {
+  city: PropTypes.string
 }
 
 export default WeatherLocation;
