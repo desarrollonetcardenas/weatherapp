@@ -13,23 +13,10 @@ class WeatherLocation extends Component {
       city: city,
       data: null
     };
-    console.log('constructor');
   }
 
   componentWillMount(){
     this.getWeatherDataApi();
-  }
-
-  componentDidMount(){
-    console.log('componentDidMount');
-  }
-
-  componentWillUpdate(){
-    console.log('componentWillUpdate');
-  }
-
-  componentDidUpdate(){
-    console.log('componentDidUpdate ');
   }
 
   getWeatherDataApi= () => {
@@ -45,9 +32,8 @@ class WeatherLocation extends Component {
       const data = transformWeather(weather_data);
       this.setState({ data });
     })
-    .catch(err=>{
-      console.log(err);
-    });
+    .catch(err=>(console.log(err))
+    );
   }
   handleUpdateClick = () => {
     this.getWeatherDataApi();
@@ -55,8 +41,9 @@ class WeatherLocation extends Component {
 
   render = () =>{
     const { city, data } = this.state;
+    const { onWeatherLocationOnClick } = this.props;
     return (
-      <div className='weatherLocationCont'>
+      <div className='weatherLocationCont' onClick={onWeatherLocationOnClick}>
        <Location city={ city }/>
        {data ? <WeatherData data={ data }/> : <CircularProgress className='classes.progress'/>}
        <button onClick={this.handleUpdateClick}>Actualizar</button>
@@ -65,8 +52,9 @@ class WeatherLocation extends Component {
   }
 }
 
-WeatherLocation.PropTypes = {
-  city: PropTypes.string
+WeatherLocation.propTypes = {
+  city: PropTypes.string,
+  onWeatherLocationOnClick: PropTypes.func
 }
 
 export default WeatherLocation;
