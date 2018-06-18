@@ -13,17 +13,27 @@ class App extends Component {
 
   render(){
     return(
+
       <MuiThemeProvider>
-        <Grid fluid>
+        <Grid>
           <Row>
-            <Col xs={12} sm={6} md={4}>
+            <h1>Grid System: xs, sm, md, lg</h1>
+          </Row>
+          <Row>
+            <h5>Las columnas se muestran en la misma fila mientras sumen 12</h5>
+          </Row>
+          <Row around="xs">
+            <Col xs={2}>
               <div className='red'></div>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={2}>
               <div className='green'></div>
             </Col>
-            <Col xs={12} sm={6} md={4}>
+            <Col xs={2}>
               <div className='blue'></div>
+            </Col>
+            <Col xs={2}>
+              <div className='yellow'></div>
             </Col>
           </Row>
         </Grid>

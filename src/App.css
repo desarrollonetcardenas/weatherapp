@@ -22,6 +22,29 @@
   font-size: large;
 }
 
+.red{
+  background-color: red;
+  height: 100px;
+  min-width: 50px;
+}
+.green {
+  background-color: green;
+  height: 100px;
+  min-width: 50px;
+
+}
+.blue{
+  background-color: blue;
+  height: 100px;
+  min-width: 50px;
+}
+
+.yellow{
+  background-color: yellow;
+  height: 100px;
+  min-width: 50px;
+}
+
 @keyframes App-logo-spin {
   from { transform: rotate(0deg); }
   to { transform: rotate(360deg); }
