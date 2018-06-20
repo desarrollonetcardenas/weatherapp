@@ -1,5 +1,7 @@
 import React, {Component} from 'react';
 import {Grid, Row, Col} from 'react-flexbox-grid';
+import Paper from '@material-ui/core/Paper';
+import AppBar from '@material-ui/core/AppBar';
 import {MuiThemeProvider} from '@material-ui/core/styles';
 import './App.css';
 import LocationList from './components/LocationList';
@@ -13,36 +15,29 @@ class App extends Component {
 
   render(){
     return(
-
-      <MuiThemeProvider>
-        <Grid>
-          <Row>
-            <h1>Grid System: xs, sm, md, lg</h1>
-          </Row>
-          <Row>
-            <h5>Las columnas se muestran en la misma fila mientras sumen 12</h5>
-          </Row>
-          <Row around="xs">
-            <Col xs={2}>
-              <div className='red'></div>
-            </Col>
-            <Col xs={2}>
-              <div className='green'></div>
-            </Col>
-            <Col xs={2}>
-              <div className='blue'></div>
-            </Col>
-            <Col xs={2}>
-              <div className='yellow'></div>
-            </Col>
-          </Row>
-        </Grid>
-      {/*<div className="App">
-        <MuiThemeProvider theme=''>
-          <LocationList cities={cities} onSelectedLocation={this.handleSelectedLocation}/>
+      <div className="App">
+        <MuiThemeProvider>
+          <Grid>
+            <Row>
+              <Col xs={12}>
+                <AppBar title="Weather App"></AppBar>
+              </Col>
+            </Row>
+            <Row>
+              <Col xs={12} md={6}>
+                <LocationList
+                  cities={cities}
+                  onSelectedLocation={this.handleSelectedLocation}/>
+              </Col>
+              <Col xs={12} md={6}>
+                <Paper zDepth={4}>
+                  <div className='detail'></div>
+                </Paper>
+              </Col>
+            </Row>
+          </Grid>
         </MuiThemeProvider>
-      </div>*/}
-      </MuiThemeProvider>
+      </div>
     )
   }
 }
