@@ -4,7 +4,7 @@ import './styles.css';
 
 const Location = ({city}) => {
   return (
-    <div className='locationCont'>
+    <div className='LocationCont'>
       <h1>{city}</h1>
     </div>
   )

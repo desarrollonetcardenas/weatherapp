@@ -16,10 +16,11 @@ class WeatherLocation extends Component {
   }
 
   componentWillMount(){
-    this.getWeatherDataApi();
+    // this.getWeatherDataApi();
+    this.getWeatherDataApiDummy();
   }
 
-  getWeatherDataApi= () => {
+  getWeatherDataApi = () => {
     const { city } = this.state;
     const api_key="bfd5b8a316e04133e81ffb5a8031af4e";
     const url= "https://api.openweathermap.org/data/2.5/weather";
@@ -35,6 +36,19 @@ class WeatherLocation extends Component {
     .catch(err=>(console.log(err))
     );
   }
+
+  getWeatherDataApiDummy = () => {
+    const weather_data = {
+      main:{
+        humidity: 10,
+        temp: 22.8
+      },
+      wind: '10'
+    }
+    const data = transformWeather(weather_data);
+    this.setState({ data });
+  }
+
   handleUpdateClick = () => {
     this.getWeatherDataApi();
   }

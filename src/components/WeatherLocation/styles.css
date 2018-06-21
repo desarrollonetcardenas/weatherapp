@@ -6,9 +6,8 @@
     min-width: 430px;
     padding: 25px;
     box-sizing: border-box;
-    font-family: 'Roboto', sans-serif;
+    font-family: 'Roboto', 'sans-serif';
     box-shadow: 10px 10px 42px -12px rgba(0,0,0,0.75);
-    cursor: pointer;
 }
 
 .LocationCont {

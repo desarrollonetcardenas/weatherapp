@@ -47,8 +47,8 @@
 
 .detail{
   background: #999;
-  height: 100vh;
-  width: 100%;
+  height: 95vh;
+  width: 95%;
 }
 
 @keyframes App-logo-spin {
