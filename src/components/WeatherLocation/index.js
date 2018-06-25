@@ -16,8 +16,8 @@ class WeatherLocation extends Component {
   }
 
   componentWillMount(){
-    // this.getWeatherDataApi();
-    this.getWeatherDataApiDummy();
+     this.getWeatherDataApi();
+    //this.getWeatherDataApiDummy();
   }
 
   getWeatherDataApi = () => {
