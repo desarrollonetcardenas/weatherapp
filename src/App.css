@@ -47,8 +47,17 @@
 
 .detail{
   background: #999;
-  height: 95vh;
-  width: 95%;
+  height: 85vh;
+  width: calc(100% - 40%);
+  overflow: auto;
+  padding-right: 20px;
+  padding-left: 20px;
+}
+
+@media(max-width: 64em){
+  .detail{
+    height: 40vh;
+  }
 }
 
 @keyframes App-logo-spin {
