@@ -5,18 +5,22 @@
   "dependencies": {
     "@material-ui/core": "^1.2.3",
     "@material-ui/icons": "^1.1.0",
+    "chai": "^3.5.0",
+    "chai-enzyme": "^0.6.1",
+    "cheerio": "^0.22.0",
     "convert-units": "^2.3.4",
     "create-react-class": "^15.6.3",
-    "eslint": "^4.19.1",
+    "enzyme": "^1.6.0",
     "moment": "^2.22.2",
     "prop-types": "^15.6.1",
     "react": "^16.4.0",
     "react-dom": "^16.4.0",
     "react-flexbox-grid": "^2.1.2",
     "react-redux": "^5.0.7",
-    "react-scripts": "1.1.4",
+    "react-scripts": "^2.1.1",
     "react-weathericons": "^1.0.4",
-    "redux": "^4.0.0"
+    "redux": "^3.7.2",
+    "redux-thunk": "^2.3.0"
   },
   "scripts": {
     "start": "react-scripts start",
@@ -26,5 +30,11 @@
   },
   "devDependencies": {
     "redux-devtools": "^3.4.1"
-  }
+  },
+  "browserslist": [
+    ">0.2%",
+    "not dead",
+    "not ie <= 11",
+    "not op_mini all"
+  ]
 }

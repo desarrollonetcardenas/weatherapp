@@ -40,9 +40,9 @@ class ForecastExtended extends Component{
     fetch(api_weather)
     .then(data => (data.json()))
     .then(weather_data =>{
-      console.log(weather_data);
+      // console.log(weather_data);
       const forecastData = transformForecast(weather_data);
-      console.log(forecastData);
+      // console.log(forecastData);
       this.setState({ forecastData });
     });
   }
@@ -50,6 +50,7 @@ class ForecastExtended extends Component{
   renderForecastItemDays(forecastData){
     return forecastData.map(forecast =>
         <ForecastItem
+          key={ `${forecast.weekDay}${forecast.hour}` }
           weekDay={forecast.weekDay}
           hour={forecast.hour}
           data={forecast.data}>
